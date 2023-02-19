@@ -26,4 +26,8 @@ Einde samenvatting.
 
 Op de [website van de politieacademie.nl staat ongeveer hetzelfde](https://webapps.politieacademie.nl/bijzondere-bromfiets/53484).
 
-Om een bestaande elektrische step legaal te maken had iemand het idee om de step te voorzien van detectoren die detecteren als de bestuurder van de step een stepbeweging maakt door met het been af te zetten tijdens het steppen. Dit idee is vorm te geven door lichtbronnen te monteren aan de voetenplank van de step, plus detectoren die de reflectie van dit licht op de voet, die afzet, te detecteren. Dit patroon van reflectie kan dan in eeh computertje ingevoerd worden, en dat computertje kan dan de motor van de step uitschakelen als er geen beweging van de bestuurder gedetecteerd wordt gedurende een aantal seconden.
+Om een bestaande elektrische step legaal te maken is er het idee om de step te voorzien van detectoren die detecteren als de bestuurder van de step een stepbeweging maakt door met het been af te zetten tijdens het steppen. Dit idee is vorm te geven door lichtbronnen te monteren aan de voetenplank van de step, plus detectoren die de reflectie van dit licht op de voet, die afzet, te detecteren. Dit patroon van reflectie kan dan in eeh computertje ingevoerd worden, en dat computertje kan dan de motor van de step uitschakelen als er geen beweging van de bestuurder gedetecteerd wordt gedurende een aantal seconden.
+
+De lichtgevers en lichtdetectoren worden dan gemonteerd op de juiste plaats van de voetenplan waar die het beste de beweging van het been kan detecteren als de bestuurder met de voet afzet.
+
+Hier in deze repository staan een aantal bestanden die de elektonische schakeling weergeven, plus de programmatuur, dat bovenstaand idee vormgeeft.
