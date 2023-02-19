@@ -6,16 +6,16 @@ Op de [website van de rijksoverheid.nl staat waaraan een elektrische step moet v
 
 Voor het geval de link naar het artikel verdwijnt of verandert: Dit is een samenvatting van wat het artikel zei in februari 2023:
 
-### Wat is een e-step met trapondersteuning?
+Wat is een e-step met trapondersteuning? 
 U stept zelf op deze e-step. 
 Door de hulpmotor gaat u harder vooruit. 
 Maar niet harder dan 25 kilometer per uur.
 De hulpmotor heeft een vermogen van maximaal 250 Watt.
 
-### Regels voor gebruik e-step met trapondersteuning
+Regels voor gebruik e-step met trapondersteuning.
 Voor deze e-step gelden dezelfde regels als voor een elektrische fiets. U hoeft bijvoorbeeld geen rijbewijs te hebben.
 
-### Uitrusting die een e-step met trapondersteuning moet hebben
+Uitrusting die een e-step met trapondersteuning moet hebben:
 Een e-step met trapondersteuning heeft:
 een stuur;
 verlichting; 
@@ -25,3 +25,5 @@ Let op! Sommige e-steps hebben een gashendel. Deze werkt niet. Werkt de gashende
 Einde samenvatting.
 
 Op de [website van de politieacademie.nl staat ongeveer hetzelfde](https://webapps.politieacademie.nl/bijzondere-bromfiets/53484).
+
+Om een bestaande elektrische step legaal te maken had iemand het idee om de step te voorzien van detectoren die detecteren als de bestuurder van de step een stepbeweging maakt door met het been af te zetten tijdens het steppen. Dit idee is vorm te geven door lichtbronnen te monteren aan de voetenplank van de step, plus detectoren die de reflectie van dit licht op de voet, die afzet, te detecteren. Dit patroon van reflectie kan dan in eeh computertje ingevoerd worden, en dat computertje kan dan de motor van de step uitschakelen als er geen beweging van de bestuurder gedetecteerd wordt gedurende een aantal seconden.
