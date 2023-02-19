@@ -1,4 +1,4 @@
-# Legale step met elektrische stepondersteuning
+# Legale elektrische step
 
 Ideeën en schemas en code voor een elektrische step die legaal is binnen Nederland.
 
