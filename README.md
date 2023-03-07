@@ -20,6 +20,7 @@ Een e-step met trapondersteuning heeft:
 * een stuur;
 * verlichting; 
 * rode en witte/gele reflectoren.
+
 Let op! Sommige e-steps hebben een gashendel. Deze werkt niet. Werkt de gashendel wel? Dan is uw e-step een bijzondere bromfiets.
 
 Einde samenvatting.
