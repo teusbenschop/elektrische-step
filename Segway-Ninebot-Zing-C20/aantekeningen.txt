@@ -1,0 +1,25 @@
+Gashendel verwijderen
+=====================
+
+De step heeft een gashendel.
+Deze mag niet werken.
+Makkelijkste is de gashendel te verwijderen.
+Knip de kabel naar de gashendel door.
+
+Deze kabel bevat bij deze step vier draden.
+* Zwart: Aarde, 0 Volt.
+* Wit: Aan/uit knop. Verbind een drukknop met deze kabel, dan via een weerstand van 1 kΩ naar de aarde- zwart. Indrukken van deze knop schakelt de step in, het schakelt tussen de modes. Lang ingedrukt houden van deze knop schakelt de step weer uit.
+* Rood: Als de step aan is dan staat hier +5 Volt op.
+* Groen: De draad die vanaf de Hall sensor van de oorspronkelijke gashendel komt.
+
+In plaats van de verwijderde gashendel is nu eventueel een remhendel te monteren.
+De Xiaomi Mi M365 remhendel bevat ook een Hall sensor.
+Hoe dieper de remhendel ingeknepen wordt, hoe hoger de spanning is die de Hall sensor levert.
+De remhendel heeft drie draden, zwart, rood en groen.
+Deze draden kunnen met bovenstaande draden verbonden worden, kleur aan kleur.
+
+De remhendel krijgt dus 5 Volt op zwart en rood. 
+De groene draad levert dan een analoge verierende spanning. 
+De minimum waarde is 0.84 Volt als de remhendel losgelaten is.
+De maximum waarde is 4.29 Volt als de remhendel ingeknepen is.
+De Hall sensor gebruikt 5.1 mA bij 5 Volt. 

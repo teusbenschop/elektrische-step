@@ -30,4 +30,8 @@ Om een bestaande elektrische step legaal te maken is er het idee om de step te v
 
 De lichtgevers en lichtdetectoren worden dan gemonteerd op de juiste plaats van de voetenplan waar die het beste de beweging van het been kan detecteren als de bestuurder met de voet afzet.
 
+Als de step nog een gashendel heeft, dan mag die gashendel niet werken.
+De meest eenvoudige oplossing is om de gashendel gewoon te verwijderen.
+Daarnaast is het als optie mogelijk om een remhendel van bijvoorbeeld de Xiaomi Mi M365 te monteren op de plaats waar de gashendel zat. Die remhendel kan dan fungeren als dodemansknop. Zodra de dodemanshendel ingeknepen wordt, dan kan de motor aan gaan. Zodra de dodemanshendel losgelaten wordt, dan gaat de motor gelijk uit.
+
 Hier in deze repository staan een aantal bestanden die de elektonische schakeling weergeven, plus de programmatuur, dat bovenstaand idee vormgeeft.
