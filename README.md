@@ -6,6 +6,8 @@ Op de [website van de rijksoverheid.nl staat waaraan een elektrische step moet v
 
 Dit is een samenvatting van het artikel (gecontroleerd maart 2023):
 
+---
+
 Wat is een e-step met trapondersteuning? 
 * U stept zelf op deze e-step. 
 * Door de hulpmotor gaat u harder vooruit. 
@@ -22,6 +24,8 @@ Een e-step met trapondersteuning heeft:
 * rode en witte/gele reflectoren.
 
 Let op! Sommige e-steps hebben een gashendel. Deze werkt niet. Werkt de gashendel wel? Dan is uw e-step een bijzondere bromfiets.
+
+---
 
 Einde samenvatting.
 
