@@ -2,8 +2,8 @@
 // It uses a PIR detector to detect the kick movement of the legs.
 
 
-constexpr bool debug {true};
-//constexpr bool debug {false};
+//constexpr bool debug {true};
+constexpr bool debug {false};
 
 // The timer library.
 #include <millisDelay.h>
@@ -12,7 +12,6 @@ constexpr bool debug {true};
 // The MCP 4725 DAC library.
 #include <Adafruit_MCP4725.h>
 
-bool flash_led_on {false};
 millisDelay flash_led_delay {};
 
 millisDelay sensor_timer {};
@@ -22,7 +21,13 @@ int throttle_input_value {0};
 
 // The digital to analog converter.
 Adafruit_MCP4725 digital_analog_converter;
-int throttle_output_value {0};
+
+// The value where the throttle is fully closed. This was measured in a real configuration.
+constexpr int throttle_idle_input {183};
+constexpr int throttle_idle_output {727};
+
+// The actual throttle output voltage.
+int throttle_output_value {throttle_idle_output};
 
 constexpr int beeper_pin {8};
 millisDelay beeper_timer {};
@@ -34,6 +39,10 @@ constexpr int motor_remain_on_seconds {8};
 
 // The number of seconds that the motor-on is now timing out.
 int motor_timeout_seconds_counter {0};
+
+// PIR sensor.
+constexpr int pir_pin {5};
+
 
 // The setup function runs once when you press reset or power the board.
 void setup () 
@@ -72,11 +81,15 @@ void setup ()
   // This is the period between toggling the LED on or off.
   flash_led_delay.start(500);
 
-  // Start the timer for reading the PIR motion sensor and the IR photo diodes every nn milliseconds.
+  // Start the timer for reading the PIR motion sensor every nn milliseconds.
+  // Note: Another method is to count the pulses and so attach an interrupt to the PIR sensor input pin.
   sensor_timer.start (50);
 
   // The motor timer will do a cycle every second for doing the housekeeping.
   motor_timer.start (1000);
+
+  // Initialize the PIR pin.
+  pinMode (pir_pin, INPUT);
 }
 
 
@@ -88,10 +101,8 @@ void loop ()
   if (flash_led_delay.justFinished()) {
     // Repeat the timer.
     flash_led_delay.repeat();
-    // Toggle the LED-on flag.
-    flash_led_on = !flash_led_on;
-    // Turn the LED on or off.
-    digitalWrite (LED_BUILTIN, flash_led_on ? HIGH : LOW);
+    // Toggle the LED.
+    toggle_built_in_led ();
     
     // Optionally read the analog input from the photodiode and write it to the serial terminal.
     if (debug) {
@@ -109,12 +120,12 @@ void loop ()
   if (sensor_timer.justFinished()) {
     sensor_timer.repeat();
 
-//    bool right_sensor_on = (right_photo_diode_value < previous_right_photo_diode_value - photo_diodes_sensitivity);
-//    previous_right_photo_diode_value = right_photo_diode_value;
-//    if (right_sensor_on) {
-//      beep (1);
-//      kick_motor_timer (motor_remain_on_seconds);
-//    }
+    bool pir_state = digitalRead (pir_pin);
+    if (pir_state) {
+      toggle_built_in_led ();
+      beep (1);
+      kick_motor_timer (motor_remain_on_seconds);
+    }
 
     // The analogRead() value is 10 bits wide so goes from 0 to 1023.
     throttle_input_value = analogRead (throttle_input_pin);
@@ -122,6 +133,11 @@ void loop ()
     // The DAC is 12 bits, to its input value can vary between 0 and 4095.
     // So multiply the input value by 4 then.
     int throttle_value_12_bits = 4 * throttle_input_value;
+
+    // Check if the motor should be switched off.
+    if (motor_timeout_seconds_counter >= motor_remain_on_seconds) {
+      throttle_value_12_bits = throttle_idle_output;
+    }
 
     if (throttle_value_12_bits != throttle_output_value) {
       // Normally the value to change the throttle output with is 10% of the absolute difference.
@@ -136,7 +152,7 @@ void loop ()
     }
 
     // If the throttle is released, the motor time-out restarts.
-    if (throttle_input_value < 200) {
+    if (throttle_input_value < (throttle_idle_input * 1.1)) {
       kick_motor_timer ((motor_remain_on_seconds / 3) + 1);
     }
   }  
@@ -150,11 +166,6 @@ void loop ()
     motor_timer.repeat();
     // Increase the timeout counter.
     motor_timeout_seconds_counter++;
-    // Check if the motor should be switched off.
-    if (motor_timeout_seconds_counter >= motor_remain_on_seconds) {
-//      digitalWrite (throttle_relay_pin, HIGH);
-    }
-    
   }
 
 }
@@ -170,7 +181,12 @@ void kick_motor_timer (int value)
 {
   motor_timeout_seconds_counter -= value;
   if (motor_timeout_seconds_counter < 0) motor_timeout_seconds_counter = 0;
-  if (motor_timeout_seconds_counter == 0) {
-//    digitalWrite (throttle_relay_pin, LOW);
-  }
+}
+
+
+void toggle_built_in_led ()
+{
+  static bool led_on {false};
+  led_on = !led_on;
+  digitalWrite (LED_BUILTIN, led_on ? HIGH : LOW);
 }
